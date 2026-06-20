@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="top">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Umrechnungsapp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp" />
+
+        <!-- ── Fläche ─────────────────────────────────────────── -->
+        <EditText
+            android:id="@+id/inputFieldFlaeche"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quadratmeter eingeben"
+            android:inputType="numberDecimal"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/buttonBerechnenFlaeche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Umrechnen"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/resultFlaeche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <!-- ── Alter ──────────────────────────────────────────── -->
+        <Button
+            android:id="@+id/buttonAlterWaehlen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Geburtstag auswählen"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/resultAlter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <!-- ── Geld ───────────────────────────────────────────── -->
+        <EditText
+            android:id="@+id/inputFieldGeld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Betrag in Euro eingeben"
+            android:inputType="numberDecimal"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/buttonBerechnenGeld"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Umrechnen"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/resultGeld"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- FAB bleibt unten rechts -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonadd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
