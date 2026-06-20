@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+        //Button für die Flächenberechnung. Falls keine Eingabe bzw. eine ungülige
+        //Angabe gemacht wird wird der Nutzer informiert. Es wird auf die 4. Dezimalstelle gerundet.
         buttonBerechnenFlaeche.setOnClickListener {
             val input = inputFieldFlaeche.text.toString()
             if (input.isBlank()) {
@@ -58,7 +59,8 @@ class MainActivity : AppCompatActivity() {
             resultFlaeche.text = "%.4f Fußballfelder".format(felder)
         }
 
-
+        //Button für die Geld zu Zeit Berechnung. Der Eurowert
+        //wird einfach multipliziert und in Jahren und Tagen wiedergegeben.
         buttonBerechnenGeld.setOnClickListener {
             val input = inputFieldGeld.text.toString()
             if (input.isBlank()) {
@@ -77,7 +79,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
+        //Button für den Kalender. Es wird ein Kalender erstellt in dem abgespeichert wird, wann man geboren wurde. Das Datum wird
+        //mit dem Datum heute berechnet und geschaut, wieviel Jahre und Tage dazwischen liegen.
         buttonAlterWaehlen.setOnClickListener {
             val heute = Calendar.getInstance()
             val datePicker = DatePickerDialog(
@@ -85,11 +88,6 @@ class MainActivity : AppCompatActivity() {
                 { _, jahr, monat, tag ->
                     val geburtsdatum = LocalDate.of(jahr, monat + 1, tag)
                     val heuteLocal = LocalDate.now()
-
-                    if (geburtsdatum.isAfter(heuteLocal)) {
-                        resultAlter.text = "Das Geburtsdatum darf nicht in der Zukunft liegen."
-                        return@DatePickerDialog
-                    }
 
                     val period = Period.between(geburtsdatum, heuteLocal)
                     val tageGesamt = ChronoUnit.DAYS.between(geburtsdatum, heuteLocal)
@@ -99,8 +97,7 @@ class MainActivity : AppCompatActivity() {
                     val tage = period.days
 
                     resultAlter.text =
-                        "Alter: $jahre Jahre, $monate Monate, $tage Tage\n" +
-                                "Insgesamt: $tageGesamt Tage"
+                        "Alter: $jahre Jahre, $monate Monate, $tage Tage\n" + "Insgesamt: $tageGesamt Tage"
                 },
                 heute.get(Calendar.YEAR),
                 heute.get(Calendar.MONTH),
@@ -110,7 +107,8 @@ class MainActivity : AppCompatActivity() {
             datePicker.show()
         }
 
-
+        //Hier wird eingestellt, welcher Umrechner verfügbar ist. Wenn man einen anklickt, wird dieser Visible. Ansonsten sind alle
+        //auf gone gestellt.
         button.setOnClickListener {
 
             inputFieldFlaeche.visibility = View.GONE
